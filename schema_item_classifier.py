@@ -404,7 +404,7 @@ def _test(opt):
     )
 
     # load fine-tuned params
-    model.load_state_dict(torch.load(opt.save_path + "/dense_classifier.pt", map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load(opt.save_path + "/dense_classifier.pt", map_location=torch.device('cpu')), strict=False)
     if torch.cuda.is_available():
         model = model.cuda()
     model.eval()
